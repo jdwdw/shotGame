@@ -1,0 +1,17 @@
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/touxie/Desktop/4399work/4399job/obj/Debug/Assembly-CSharp.dll
+/Users/touxie/Desktop/4399work/4399job/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/UnityEngine.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/UnityEditor.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Mono.Cecil.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Unity.DataContract.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Debug/Mono.Cecil.Mdb.dll

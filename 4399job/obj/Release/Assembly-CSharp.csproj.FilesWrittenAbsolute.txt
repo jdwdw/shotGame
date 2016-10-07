@@ -1,0 +1,17 @@
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Assembly-CSharp.dll.mdb
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Assembly-CSharp.dll
+/Users/touxie/Desktop/4399work/4399job/obj/Release/Assembly-CSharp.dll
+/Users/touxie/Desktop/4399work/4399job/obj/Release/Assembly-CSharp.dll.mdb
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/UnityEngine.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/UnityEditor.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/UnityEngine.Networking.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/UnityEngine.UI.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Mono.Cecil.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Unity.SerializationLogic.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Unity.DataContract.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/ICSharpCode.NRefactory.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Unity.UNetWeaver.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Unity.UNetWeaver.dll.mdb
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Unity.CecilTools.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Mono.Cecil.Pdb.dll
+/Users/touxie/Desktop/4399work/4399job/Temp/bin/Release/Mono.Cecil.Mdb.dll
