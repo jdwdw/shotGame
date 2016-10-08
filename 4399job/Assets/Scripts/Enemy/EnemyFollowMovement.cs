@@ -8,6 +8,7 @@ public class EnemyFollowMovement : MonoBehaviour
 	EnemyHealth enemyHealth;
 	NavMeshAgent nav;
 
+	Animator anim;
 
 	void Awake ()
 	{
@@ -15,6 +16,7 @@ public class EnemyFollowMovement : MonoBehaviour
 		playerHealth = player.GetComponent <PlayerHealth> ();
 		enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
+		anim=GetComponent<Animator>();
 	}
 
 
@@ -23,9 +25,12 @@ public class EnemyFollowMovement : MonoBehaviour
 		if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
 		{
 			nav.SetDestination (player.position);
+			anim.SetBool ("Static_b", true);
+			anim.SetFloat ("Speed_f", 0.6f);
 		}
 		else
 		{
+			anim.SetFloat ("Speed_f", 0.3f);
 			nav.enabled = false;
 		}
 	}

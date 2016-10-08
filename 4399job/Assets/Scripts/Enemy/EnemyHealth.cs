@@ -63,18 +63,21 @@ public class EnemyHealth : MonoBehaviour
 
 		capsuleCollider.isTrigger = true;
 
+		anim.SetBool ("Death_b", true);
+		anim.SetFloat ("DeathType_int", 1);
+
      	//anim.SetTrigger ("Dead");
 		StartSinking();
-	//	enemyAudio.clip = deathClip;
-	//	enemyAudio.Play ();
+		enemyAudio.clip = deathClip;
+		enemyAudio.Play ();
 	}
 
 
 	public void StartSinking ()
 	{
 		GetComponent <NavMeshAgent> ().enabled = false;
-		GetComponent <Rigidbody> ().isKinematic = true;
-		isSinking = true;
+		//GetComponent <Rigidbody> ().isKinematic = true;
+		//isSinking = true;
 		ScoreManager.score += scoreValue;
 		Destroy (gameObject, 2f);
 	}

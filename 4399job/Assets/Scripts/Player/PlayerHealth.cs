@@ -65,6 +65,16 @@ public class PlayerHealth : MonoBehaviour
 		}
 	}
 
+	public void AddHeart (int amount){
+		if (currentHealth <= 100-amount) 
+		{
+			currentHealth += amount;
+		} 
+		else {
+			currentHealth = 100;
+		}
+		healthSlider.value = currentHealth;
+	}
 
 	void Death ()
 	{
@@ -75,8 +85,8 @@ public class PlayerHealth : MonoBehaviour
 		anim.SetBool ("Death_b", true);
 		anim.SetFloat ("DeathType_int", 1);
 
-//		playerAudio.clip = deathClip;
-//		playerAudio.Play ();
+		playerAudio.clip = deathClip;
+		playerAudio.Play ();
 
 		playerMovement.enabled = false;
 		playerShooting.enabled = false;

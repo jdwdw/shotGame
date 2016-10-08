@@ -15,6 +15,8 @@ public class EnemyAroundMovement : MonoBehaviour
 	Rigidbody rb;
 	bool playerInRange;
 
+	Animator anim;
+
 
 
 	void Awake ()
@@ -25,6 +27,7 @@ public class EnemyAroundMovement : MonoBehaviour
 		enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
 		rb = GetComponent<Rigidbody>();
+		anim=GetComponent<Animator>();
 
 
 	}
@@ -51,10 +54,13 @@ public class EnemyAroundMovement : MonoBehaviour
 				m_WayPointIndex = (m_WayPointIndex + 1) % WayPoints.Length;
 	
 			}
+			anim.SetBool ("Static_b", true);
+			anim.SetFloat ("Speed_f", 0.6f);
 		} 
 		else 
 		{
 			nav.enabled = false;
+			anim.SetFloat ("Speed_f", 0.3f);
 			Turning ();
 		}
 		//Turning ();

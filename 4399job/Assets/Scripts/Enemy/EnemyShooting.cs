@@ -116,6 +116,9 @@ public class EnemyShooting : MonoBehaviour {
 	{
 //		if ( Time.time > nextFire) 
 //		nextFire = Time.time + fireRate;
+		anim.SetTrigger("Shoot_b");
+		GetComponent<AudioSource> ().Play ();
 		Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
+
 	}
 }
