@@ -83,7 +83,7 @@ public class PlayerHealth : MonoBehaviour
 		playerShooting.DisableEffects ();
 
 		anim.SetBool ("Death_b", true);
-		anim.SetFloat ("DeathType_int", 1);
+		anim.SetInteger ("DeathType_int", 2);
 
 		playerAudio.clip = deathClip;
 		playerAudio.Play ();

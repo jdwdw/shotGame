@@ -64,7 +64,8 @@ public class EnemyHealth : MonoBehaviour
 		capsuleCollider.isTrigger = true;
 
 		anim.SetBool ("Death_b", true);
-		anim.SetFloat ("DeathType_int", 1);
+		anim.SetInteger ("DeathType_int", 1);
+
 
      	//anim.SetTrigger ("Dead");
 		StartSinking();

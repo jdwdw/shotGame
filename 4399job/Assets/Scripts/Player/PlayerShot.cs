@@ -23,6 +23,7 @@ public class PlayerShot : MonoBehaviour {
 	void Update () {
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) 
 		{
+
 //			anim.SetFloat ("WeaponType_int",8);
 			anim.SetTrigger("Shoot_b");
 			gunAudio.Play ();
