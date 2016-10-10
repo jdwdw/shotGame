@@ -13,6 +13,11 @@ namespace UnityProject
 		int floorMask;
 		float camRayLength = 100f;
 		GameObject player;
+	
+
+
+		private Vector3 direction;
+		private Coroutine cououtine;
 
 		void Awake()
 		{
@@ -25,8 +30,10 @@ namespace UnityProject
 
 		void FixedUpdate ()
 		{
-			float h = Input.GetAxisRaw ("Horizontal");
-			float v = Input.GetAxisRaw ("Vertical");
+			//float h = Input.GetAxisRaw ("Horizontal");
+			//float v = Input.GetAxisRaw ("Vertical");
+			float h=this.direction.x;
+			float v =this.direction.y;
 
 			Move(h, v);
 			Turning ();
@@ -65,6 +72,27 @@ namespace UnityProject
 				//anim.SetBool ("Static_b", true);
 				anim.SetFloat ("Speed_f", 0.3f);
 			}
+		}
+		public void BeginMove(){
+
+			//this.cououtine = StartCoroutine();
+			resetDirection();
+		}
+
+		public void EndMove(){
+
+			//StopCoroutine(this.cououtine);
+			resetDirection();
+		}
+
+		public void UpdateDirection(Vector3 direction){
+
+			this.direction = direction;
+
+		}
+		private void resetDirection(){
+
+			this.direction = Vector3.zero;
 		}
 	}
 }

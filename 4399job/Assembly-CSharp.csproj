@@ -57,6 +57,9 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyShooting.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyStandTurn.cs" />
      <Compile Include="Assets\Scripts\GamePauser.cs" />
+     <Compile Include="Assets\Scripts\JoyStick\CubeController.cs" />
+     <Compile Include="Assets\Scripts\JoyStick\FixedJoystickHandler.cs" />
+     <Compile Include="Assets\Scripts\JoyStick\ScrollCircle.cs" />
      <Compile Include="Assets\Scripts\Manager\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\Manager\GameOverManager.cs" />
      <Compile Include="Assets\Scripts\Manager\ScoreManager.cs" />
@@ -69,10 +72,10 @@
      <None Include="Assets\SimpleMilitary\Changelog.txt" />
      <None Include="Assets\SimpleMilitary\Materials\UnlitVertexColour_Alpha.shader" />
  <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>/applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
