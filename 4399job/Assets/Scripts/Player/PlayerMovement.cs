@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 namespace UnityProject
@@ -15,8 +17,9 @@ namespace UnityProject
 		GameObject player;
 	
 
-
 		private Vector3 direction;
+		private Quaternion quaternion;
+		private Vector3 quaternionDirection;
 		private Coroutine cououtine;
 
 		void Awake()
@@ -49,17 +52,73 @@ namespace UnityProject
 
 		void Turning ()
 		{
-			Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit floorHit;
-			if(Physics.Raycast (camRay, out floorHit, camRayLength, floorMask))
+//用触屏位置控制主角角度
+			if (Input.touchCount > 0)
 			{
-				Vector3 playerToMouse = floorHit.point - transform.position;
-				playerToMouse.y = 0f;
-				Quaternion newRotation = Quaternion.LookRotation (playerToMouse);
-				rb.MoveRotation (newRotation);
+				if (EventSystem.current.currentSelectedGameObject != null)
+				{
+//					Debug.Log (EventSystem.current.currentSelectedGameObject.tag);
+//					if (EventSystem.current.currentSelectedGameObject.tag == "JoyStick")
+//					{
+//					
+//
+//						Ray camRay = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
+//
+//					}
+//					else
+//					{
+//					Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+//					RaycastHit floorHit;
+//					if (Physics.Raycast (camRay, out floorHit, camRayLength, floorMask))
+//					{
+//						Vector3 playerToMouse = floorHit.point - transform.position;
+//						playerToMouse.y = 0f;
+//						Quaternion newRotation = Quaternion.LookRotation (playerToMouse);
+//						rb.MoveRotation (newRotation);
+//					}
+//					}
+				}
+				else
+				{
+
+					StartCoroutine(Wait(0.02f));
+				}
 			}
+//用控制主角角度
+			if (this.quaternionDirection.magnitude>0.001f )
+			{
+				Quaternion quaternion=Quaternion.LookRotation(new Vector3(quaternionDirection.x,0,quaternionDirection.y));
+				Quaternion theQuaternion=Quaternion.Lerp(rb.rotation,quaternion,15*Time.deltaTime);
+				rb.MoveRotation (theQuaternion);
+			}
+			//Quaternion quaternion=Quaternion.LookRotation(new Vector3(quaternionDirection.x,0,quaternionDirection.y));
+
+
+			//rb.MoveRotation (this.quaternion);
+			//this.quaternion=Quaternion.LookRotation(new Vector3(quaternionDirection.x,0,quaternionDirection.y));
+
+			//Quaternion theQuaternion=Quaternion.Slerp(rb.rotation,this.quaternion,100);
+			//rb.rotation=theQuaternion;
+
 		}
 
+		IEnumerator Wait(float waitTime)
+		{
+			yield return new WaitForSeconds (waitTime);
+
+			if (EventSystem.current.currentSelectedGameObject == null)
+			{
+				Ray camRay = Camera.main.ScreenPointToRay (Input.GetTouch (0).position);
+				RaycastHit floorHit;
+				if (Physics.Raycast (camRay, out floorHit, camRayLength, floorMask))
+				{
+					Vector3 playerToMouse = floorHit.point - transform.position;
+					playerToMouse.y = 0f;
+					Quaternion newRotation = Quaternion.LookRotation (playerToMouse);
+					rb.MoveRotation (newRotation);
+				}
+			}
+		}
 		void Animating (float h, float v)
 		{
 			bool walking = h != 0f || v != 0f;
@@ -77,6 +136,7 @@ namespace UnityProject
 
 			//this.cououtine = StartCoroutine();
 			resetDirection();
+	
 		}
 
 		public void EndMove(){
@@ -89,10 +149,47 @@ namespace UnityProject
 
 			this.direction = direction;
 
+
 		}
 		private void resetDirection(){
 
 			this.direction = Vector3.zero;
 		}
+
+
+		public void BeginTurning(){
+
+		}
+
+		public void EndTurning(){
+
+
+		}
+
+		public void UpdateTurning(Vector3 direction){
+			direction=direction.normalized;
+//			if (this.quaternion == null)
+//			{
+//				this.quaternion=Quaternion.LookRotation(new Vector3(0,0,1));
+//			}
+			//print (direction);
+			this.quaternionDirection = direction;
+//			if (this.quaternion == Quaternion.LookRotation (this.quaternionDirection))
+//			{
+//				this.quaternion = Quaternion.LookRotation (this.quaternionDirection);
+//			}
+//			else
+//			{		
+//				if (this.quaternion != Quaternion.LookRotation(new Vector3(0,0,0)))
+//				{
+//					this.quaternion += this.quaternion / 100;
+//				}
+//				else
+//				{
+//					this.quaternion = Quaternion.LookRotation (new Vector3 (0, 0, 0));
+//				}
+//			}
+		}
 	}
+
 }

@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿
+
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System.Collections;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -25,33 +30,49 @@ public class PlayerShooting : MonoBehaviour
 		gunLine = GetComponent <LineRenderer> ();
 		gunAudio = GetComponent<AudioSource> ();
 		gunLight = GetComponent<Light> ();
+		gunLine.enabled = true;
+
 	}
 
+	void Line()
+	{
+		shootRay.origin = transform.position;
+		shootRay.direction = transform.forward;
+		gunLine.SetPosition (0, transform.position);
+		gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
+	}
 
 	void Update ()
 	{
-		timer += Time.deltaTime;
+//		timer += Time.deltaTime;
+//
+//		if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets)
+//		{
+//			if ((Input.GetMouseButtonDown (0)) || (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began))
+//			{
+//
+//					Shoot ();
+//
+//			}
+//		}
+//
+//		if (timer >= timeBetweenBullets * effectsDisplayTime)
+//		{
+//			DisableEffects ();
+//		}
+		Line ();
 
-		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets)
-		{
-			Shoot ();
-		}
-
-		if(timer >= timeBetweenBullets * effectsDisplayTime)
-		{
-			DisableEffects ();
-		}
 	}
 
 
 	public void DisableEffects ()
 	{
-		gunLine.enabled = false;
+		//gunLine.enabled = false;
 		gunLight.enabled = false;
 	}
 
 
-	void Shoot ()
+	public void Shoot ()
 	{
 		timer = 0f;
 
@@ -62,24 +83,32 @@ public class PlayerShooting : MonoBehaviour
 		gunParticles.Stop ();
 		gunParticles.Play ();
 
-		//gunLine.enabled = true;
-		//gunLine.SetPosition (0, transform.position);
+		StartCoroutine (Wait (0.05f));
 
-		shootRay.origin = transform.position;
-		shootRay.direction = transform.forward;
+//		gunLine.enabled = true;
+//		gunLine.SetPosition (0, transform.position);
+//
+//		shootRay.origin = transform.position;
+//		shootRay.direction = transform.forward;
+//
+//		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask))
+//		{
+//			EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
+//			if (enemyHealth != null)
+//			{
+//				enemyHealth.TakeDamage (damagePerShot, shootHit.point);
+//			}
+//			gunLine.SetPosition (1, shootHit.point);
+//		} else
+//		{
+//			gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
+//		}
+	}
 
-		if(Physics.Raycast (shootRay, out shootHit, range, shootableMask))
-		{
-			EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
-			if(enemyHealth != null)
-			{
-				//enemyHealth.TakeDamage (damagePerShot, shootHit.point);
-			}
-			//gunLine.SetPosition (1, shootHit.point);
-		}
-		else
-		{
-			//gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
-		}
+	IEnumerator Wait(float waitTime)
+	{
+		yield return new WaitForSeconds (waitTime);
+
+		DisableEffects ();
 	}
 }
