@@ -5,21 +5,26 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score;
+	public static int score;
 
 
-    Text text;
+	Text text;
 
 
-    void Awake ()
-    {
-        text = GetComponent <Text> ();
-        score = 0;
-    }
+	void Awake ()
+	{
+		text = GetComponent <Text> ();
+		score = 0;
+	}
 
 
-    void Update ()
-    {
-        text.text = "score " + score;
-    }
+	void Update ()
+	{
+		text.text = "score " + score;
+	}
+
+	public void ResetScore ()
+	{
+		score = 0;
+	}
 }

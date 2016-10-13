@@ -14,16 +14,22 @@ public class PlayerHealth : MonoBehaviour
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
 	GameObject player;
+	GameObject playerOwn;
 	Animator anim;
 	AudioSource playerAudio;
 	PlayerMovement playerMovement;
 	PlayerShooting playerShooting;
-	bool isDead;
+	public bool isDead;
 	bool damaged;
+	Vector3 playerBeginPosition;
+
+	CapsuleCollider playerCapsuleCollider;
+	SphereCollider playerSphereCollider; 
 
 
 	void Awake ()
 	{
+		playerOwn=GameObject.FindWithTag ("PlayerOwn");
 		player = GameObject.FindWithTag ("Player");
 		anim = player.GetComponent<Animator>();
 		//anim = GetComponent <Animator> ();
@@ -31,6 +37,9 @@ public class PlayerHealth : MonoBehaviour
 		playerMovement = GetComponent <PlayerMovement> ();
 		playerShooting = GetComponentInChildren <PlayerShooting> ();
 		currentHealth = startingHealth;
+		playerBeginPosition = player.transform.position;
+		playerCapsuleCollider = playerOwn.GetComponent <CapsuleCollider> ();
+		playerSphereCollider=playerOwn.GetComponent <SphereCollider> ();
 	}
 
 
@@ -90,5 +99,23 @@ public class PlayerHealth : MonoBehaviour
 
 		playerMovement.enabled = false;
 		playerShooting.enabled = false;
+		playerCapsuleCollider.enabled = false;
+		playerSphereCollider.enabled = false;
+
+	}
+
+	public void PlayerRestart()
+	{
+		isDead = false;
+		anim.SetBool ("Death_b", false);
+		playerCapsuleCollider.enabled = true;
+		playerSphereCollider.enabled = true;
+		currentHealth=startingHealth;
+		healthSlider.value = currentHealth;
+		player.transform.position = playerBeginPosition;
+		playerMovement.enabled = true;
+		playerShooting.enabled = true;
+		playerMovement.PlayerRestartMovement ();
+
 	}
 }

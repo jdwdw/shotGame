@@ -10,10 +10,7 @@ public class DestroyByContactEnemyShot : MonoBehaviour {
 	//public int scoreValue; // how many score will be added when an asteroid's shot
 
 
-	Animator anim;
 	GameObject player;
-	PlayerHealth playerHealth;
-	EnemyHealth enemyHealth;
 	bool playerInRange;
 	float timer;
 
@@ -21,9 +18,7 @@ public class DestroyByContactEnemyShot : MonoBehaviour {
 	void Awake ()
 	{
 		player = GameObject.FindGameObjectWithTag ("PlayerOwn");
-		playerHealth = player.GetComponent <PlayerHealth> ();
-		enemyHealth = GetComponent<EnemyHealth>();
-		anim = GetComponent <Animator> ();
+
 	}
 
 

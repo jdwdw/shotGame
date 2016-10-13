@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -23,7 +24,6 @@ public class EnemyHealth : MonoBehaviour
 		enemyAudio = GetComponent <AudioSource> ();
 		hitParticles = GetComponentInChildren <ParticleSystem> ();
 		capsuleCollider = GetComponent <CapsuleCollider> ();
-
 		currentHealth = startingHealth;
 	}
 
@@ -76,10 +76,19 @@ public class EnemyHealth : MonoBehaviour
 
 	public void StartSinking ()
 	{
-		GetComponent <NavMeshAgent> ().enabled = false;
+		//GetComponent <NavMeshAgent> ().enabled = false;
 		//GetComponent <Rigidbody> ().isKinematic = true;
 		//isSinking = true;
 		ScoreManager.score += scoreValue;
-		Destroy (gameObject, 2f);
+		//Destroy (gameObject, 2f);
+		StartCoroutine(Wait(2f));
+	}
+
+	IEnumerator Wait(float waitTime)
+	{
+		yield return new WaitForSeconds (waitTime);
+		capsuleCollider.isTrigger = false;
+		isDead = false;
+		gameObject.SetActive(false);
 	}
 }

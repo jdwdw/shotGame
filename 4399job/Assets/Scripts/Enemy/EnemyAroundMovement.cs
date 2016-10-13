@@ -5,14 +5,11 @@ public class EnemyAroundMovement : MonoBehaviour
 {
 	public Transform[] WayPoints;
 	Transform player;
-	PlayerHealth playerHealth;
 	EnemyHealth enemyHealth;
 	public NavMeshAgent nav;
 	int m_WayPointIndex=0;
 
-	int floorMask;
-	float camRayLength = 100f;
-	Rigidbody rb;
+	//Rigidbody rb;
 	bool playerInRange;
 
 	Animator anim;
@@ -21,12 +18,10 @@ public class EnemyAroundMovement : MonoBehaviour
 
 	void Awake ()
 	{
-		floorMask = LayerMask.GetMask("Floor");
 		player = GameObject.FindGameObjectWithTag ("PlayerOwn").transform;
-		playerHealth = player.GetComponent <PlayerHealth> ();
 		enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
-		rb = GetComponent<Rigidbody>();
+		//rb = GetComponent<Rigidbody>();
 		anim=GetComponent<Animator>();
 
 

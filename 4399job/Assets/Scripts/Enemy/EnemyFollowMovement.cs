@@ -3,7 +3,8 @@ using System.Collections;
 
 public class EnemyFollowMovement : MonoBehaviour
 {
-	Transform player;
+	GameObject player;
+	Transform playerBeginPosition;
 	PlayerHealth playerHealth;
 	EnemyHealth enemyHealth;
 	NavMeshAgent nav;
@@ -12,19 +13,21 @@ public class EnemyFollowMovement : MonoBehaviour
 
 	void Awake ()
 	{
-		player = GameObject.FindGameObjectWithTag ("PlayerOwn").transform;
+		player = GameObject.FindGameObjectWithTag ("PlayerOwn");
 		playerHealth = player.GetComponent <PlayerHealth> ();
 		enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
 		anim=GetComponent<Animator>();
+	
 	}
 
 
 	void Update ()
 	{
-		if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
+		if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0&&playerHealth.isDead==false)
 		{
-			nav.SetDestination (player.position);
+			//GetComponent <NavMeshAgent> ().enabled = true;
+			nav.SetDestination (player.transform.position);
 			anim.SetBool ("Static_b", true);
 			anim.SetFloat ("Speed_f", 0.6f);
 		}
@@ -32,6 +35,10 @@ public class EnemyFollowMovement : MonoBehaviour
 		{
 			anim.SetFloat ("Speed_f", 0.3f);
 			nav.enabled = false;
+			Destroy (gameObject, 1f);
+			//GetComponent <NavMeshAgent> ().enabled = false;
 		}
 	}
+
+
 }

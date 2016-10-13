@@ -1,24 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/GameOverManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerMovement.cs" Line="65" Column="38" />
-      <File FileName="Assets/Scripts/Enemy/EnemyShooting.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/PlayerShot.cs" Line="32" Column="5" />
-      <File FileName="Assets/Scripts/Enemy/EnemyStandTurn.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerMovement.cs" Line="85" Column="6" />
+      <File FileName="Assets/Scripts/Player/PlayerShooting.cs" Line="86" Column="3" />
+      <File FileName="Assets/Scripts/Player/PlayerShot.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/JoyStick/FixedJoystickHandler.cs" Line="5" Column="103" />
       <File FileName="Assets/Scripts/Enemy/EnemyAttack.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/EnemyAroundMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemyHealth.cs" Line="71" Column="18" />
       <File FileName="Assets/Scripts/Enemy/EnemyFollowMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemyAroundMovement.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Enemy/EnemyFollowShooterMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Manager/EnemyManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GamePauser.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DestroyByContactEnemyShot.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Tools/HeartAdd.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/PlayerHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/EnemyHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/PlayerShooting.cs" Line="61" Column="20" />
-      <File FileName="Assets/Scripts/JoyStick/FixedJoystickHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/JoyStick/scrollcircle.cs" Line="5" Column="14" />
+      <File FileName="Assets/Scripts/Enemy/EnemyShooting.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemyStandTurn.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Manager/GameOverManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BeginScene/BeginSceneToPlay.cs" Line="17" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

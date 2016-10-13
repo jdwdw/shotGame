@@ -8,18 +8,20 @@ public class PlayerShot : MonoBehaviour
 	public float fireRate = 0.5f;
 	public GameObject shot;
 	public Transform shotSpawn;
+	public AudioClip shotClip;
 	private float nextFire = 0.0f;
 	Animator anim;
 	GameObject player;
 	GameObject playerGun;
 	AudioSource gunAudio;
-	bool shoted=false;
+	bool shoted = false;
 	PlayerShooting playershooting;
+
 	// Use this for initialization
 	void Start ()
 	{
 		player = GameObject.FindWithTag ("Player");
-		playerGun=GameObject.FindWithTag("PlayerGun");
+		playerGun = GameObject.FindWithTag ("PlayerGun");
 		playershooting = playerGun.GetComponent<PlayerShooting> ();
 		anim = player.GetComponent<Animator> ();
 		//anim.SetLayerWeight(3, 1);  
@@ -60,7 +62,7 @@ public class PlayerShot : MonoBehaviour
 	
 	}
 
-	public void Shot()
+	public void Shot ()
 	{
 		if (shoted == false)
 		{
@@ -73,5 +75,10 @@ public class PlayerShot : MonoBehaviour
 			shoted = true;
 		}
 
+	}
+
+	public void ResetAudioclip ()
+	{
+		gunAudio.clip = shotClip;
 	}
 }

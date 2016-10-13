@@ -11,28 +11,26 @@ public class EnemyShooting : MonoBehaviour {
 	public Transform shotSpawn;
 	private float nextFire=0.0f;
 
+	public AudioClip shotClip;
+
 
 	Animator anim;
 	GameObject player;
 	PlayerHealth playerHealth;
 	EnemyHealth enemyHealth;
 	bool playerInRange;
-	float timer;
 
-	float camRayLength = 100f;
-	int floorMask;
-	Rigidbody rb;
+	//Rigidbody rb;
 
 	//EnemyAroundMovement enemyAroundMovement;
 
 	void Awake ()
 	{
-		floorMask = LayerMask.GetMask("Floor");
 		player = GameObject.FindGameObjectWithTag ("PlayerOwn");
 		playerHealth = player.GetComponent <PlayerHealth> ();
 		enemyHealth = GetComponent<EnemyHealth>();
 		anim = GetComponent <Animator> ();
-		rb = GetComponent<Rigidbody>();
+		//rb = GetComponent<Rigidbody>();
 		//enemyAroundMovement = GetComponent <EnemyAroundMovement> ();
 	}
 
@@ -84,6 +82,8 @@ public class EnemyShooting : MonoBehaviour {
 		if(playerHealth.currentHealth <= 0)
 		{
 			//anim.SetTrigger ("PlayerDead");
+			GetComponent<AudioSource> ().clip=shotClip;
+
 		}
 	}
 
@@ -104,7 +104,6 @@ public class EnemyShooting : MonoBehaviour {
 
 	void Attack ()
 	{
-		timer = 0f;
 
 		if(playerHealth.currentHealth > 0)
 		{

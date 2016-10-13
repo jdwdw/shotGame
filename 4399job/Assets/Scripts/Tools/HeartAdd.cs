@@ -26,8 +26,11 @@ public class HeartAdd : MonoBehaviour {
 		{
 			PlayerHealth playerHealth = other.gameObject.GetComponent <PlayerHealth> ();
 			playerHealth.AddHeart (HeartCount);
-			Destroy (gameObject);
+			//Destroy (gameObject);
+			gameObject.SetActive(false);
+
 		}
 
 	}
+
 }
